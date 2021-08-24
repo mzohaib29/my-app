@@ -12,31 +12,45 @@ import "./App.css";
 // import todosData from "./components/todosData";
 // import "./style.css";
 import React, {Component} from "react";
-import Conditional from "src/Conditional";
+// import Conditional from "./Conditional";
 
 
 
 class App extends Component {
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            character: {}
+        }
+
     }
+
     componentDidMount() {
-        setTimeout(() =>{
-            this.state({
-                isLoading:false
+        fetch("https://swapi.co/api/people/1")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    character: data
+                })
             })
-        },2000)
     }
+
+
+    // componentDidMount() {
+    //     setTimeout(() =>{
+    //         this.setState({
+    //             isLoading:false
+    //         })
+    //     },2000)
+    // }
 
 
     render() {
         return (
             <div>
-               <Conditional isLoading = {this.state.isLoading}/>
+                {this.state.character.name}
             </div>
         )
     }
 }
-
 export default App;

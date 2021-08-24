@@ -14,6 +14,23 @@
   padding: 10px;
 
 }
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+}
+.btn button{
+  background-color: #282c34;
+  outline-color: #282c34;
+  color: white;
+  padding: 10px 30px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
