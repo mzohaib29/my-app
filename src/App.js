@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import "./App.css";
+// import "./App.css";
 // import Header from "./components/Header";
 // import MainContent from "./components/MainContent";
 // import Footer from "./components/Footer";
@@ -12,45 +12,23 @@ import "./App.css";
 // import todosData from "./components/todosData";
 // import "./style.css";
 import React, {Component} from "react";
+// import FormComponent from "./components/FormComponent";
+import FormContainer from "./FormContainer";
+
+
+
 // import Conditional from "./Conditional";
 
-
-
-class App extends Component {
-    constructor() {
-        super();
-        this.state = {
-            character: {}
-        }
-
-    }
-
-    componentDidMount() {
-        fetch("https://swapi.co/api/people/1")
-            .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    character: data
-                })
-            })
-    }
-
-
-    // componentDidMount() {
-    //     setTimeout(() =>{
-    //         this.setState({
-    //             isLoading:false
-    //         })
-    //     },2000)
-    // }
-
+class App extends Component{
 
     render() {
         return (
-            <div>
-                {this.state.character.name}
-            </div>
+
+            <FormContainer/>
+
+
         )
     }
 }
+
 export default App;

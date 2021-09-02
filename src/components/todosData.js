@@ -8,7 +8,7 @@ const todosData = [
     {
         id: 2,
         text: "Grocery shopping",
-        complete: false
+        complete: true
     },
     {
         id: 3,
@@ -27,4 +27,4 @@ const todosData = [
     }
 ]
 
-export default todosData
+export default todosData;

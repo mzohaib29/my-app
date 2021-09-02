@@ -11,8 +11,7 @@ import "./App.css";
 import TodoItem from "./components/TodoItem";
 import todosData from "./components/todosData";
 import "./style.css";
-// import React from "react";
-
+import React from "react";
 
 class App extends React.Component {
     constructor() {
@@ -23,26 +22,33 @@ class App extends React.Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(id){
+    handleChange(id) {
         this.setState(prevState => {
-            const updatedTodos = prevState.todos.map(todo => {
-                if(todo.id ===id) {
-                    todo.complete = !todo.complete
+            prevState.todos = prevState.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.complete = !todo.complete;
+                    console.log(id, todo?.text);
                 }
-                return todo
-            })
+                return todo;
+            });
+            // console.log(updatedTodos[1].complete);
+            console.log(prevState?.todos);
             return {
-                todos: updatedTodos
-            }
-        })
+                todos: prevState?.todos,
+            };
+        });
+        /*this.setState({
+            todos: [],
+        })*/
     }
+
     render() {
         const todoItems = this.state.todos.map(item =>
-            <TodoItem key = {item.id}
-                      item = {item}
-                      handleChange = {this.handleChange}/>)
+            <TodoItem key={item.id}
+                      item={item}
+                      handleChange={this.handleChange}/>)
         return (
-            <div className= "todo-list">
+            <div className="todo-list">
                 {todoItems}
             </div>
         )
